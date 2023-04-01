@@ -3,13 +3,13 @@ import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
+  selector: 'Search',
+  templateUrl: 'Search.page.html',
+  styleUrls: ['Search.page.scss'],
   standalone: true,
   imports: [IonicModule, ExploreContainerComponent]
 })
-export class Tab2Page {
+export class Search {
 
   constructor() {}
 
