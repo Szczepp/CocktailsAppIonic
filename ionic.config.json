@@ -1,0 +1,7 @@
+{
+  "name": "baracad",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
