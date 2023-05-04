@@ -11,6 +11,10 @@ export const routes: Routes = [
   },
   {
      path: 'users/:id', loadChildren: () => import('./users/users.page').then(m => m.UsersPage)
+  },  {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
   },
+
 
 ];
