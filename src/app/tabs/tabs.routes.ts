@@ -22,6 +22,11 @@ export const routes: Routes = [
           import('../Courses/Courses.page').then((m) => m.Courses),
       },
       {
+        path: 'Profile',
+        loadComponent: () =>
+          import('../Profile/profile.component').then((m) => m.ProfileComponent),
+      },
+      {
         path: '',
         redirectTo: '/tabs/Home',
         pathMatch: 'full',

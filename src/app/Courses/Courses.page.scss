@@ -1,3 +1,10 @@
 ion-toolbar {
-    --opacity: .5
+    --opacity: .8
   }
+
+ion-item {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
