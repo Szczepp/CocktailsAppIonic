@@ -15,9 +15,13 @@
       <ion-label>Courses</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="Profile">
+    <ion-tab-button *ngIf="currentUser" tab="Profile">
       <ion-icon name="people-circle-outline"></ion-icon>
       <ion-label> Profile </ion-label>
+    </ion-tab-button>
+    <ion-tab-button *ngIf="!currentUser" tab="Login">
+      <ion-icon name="people-circle-outline"></ion-icon>
+      <ion-label> Log in </ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

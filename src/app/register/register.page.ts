@@ -7,13 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, ReactiveFormsModule], 
 })
-export class LoginPage implements OnInit {
+export class RegisterPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
     private authService: AuthService
   ) {}
 
-  loginForm!: FormGroup;
+  registerForm!: FormGroup;
 
   loading = false;
   submitted = false;
@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
@@ -42,28 +42,28 @@ export class LoginPage implements OnInit {
   }
 
   get f() {
-    return this.loginForm?.controls;
+    return this.registerForm?.controls;
   }
 
   onSubmit(): void {
     console.log("clicked log in");
-    this.submitted = true;
+    // this.submitted = true;
 
-    if (this.loginForm?.invalid) {
-      return;
-    }
-    this.loading = true;
-    this.authService
-      .login(this.f?.['username'].value, this.f?.['password'].value)
-      .pipe(first())
-      .subscribe(
-        (data) => {
-          this.router.navigate([this.returnUrl]);
-        },
-        (error) => {
-          this.error = error.error;
-          this.loading = false;
-        }
-      );
+    // if (this.registerForm?.invalid) {
+    //   return;
+    // }
+    // this.loading = true;
+    // this.authService
+    //   .register(this.f?.['username'].value, this.f?.['password'].value)
+    //   .pipe(first())
+    //   .subscribe(
+    //     (data) => {
+    //       this.router.navigate([this.returnUrl]);
+    //     },
+    //     (error) => {
+    //       this.error = error.error;
+    //       this.loading = false;
+    //     }
+    //   );
   }
 }

@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Login
+      Register
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content >
-  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
   <ion-item>
     <ion-label position="floating">Username</ion-label>
     <ion-input type="text" formControlName="username"></ion-input>
@@ -18,9 +18,9 @@
     <ion-input type="password" formControlName="password"></ion-input>
   </ion-item>
 
-  <ion-button expand="block" color="primary" type="submit">Login</ion-button>
+  <ion-button expand="block" color="primary" type="submit">Register</ion-button>
   <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
 </form>
-<ion-button expand="block" color="primary" (click)="navigateToTab('Register')"> Register </ion-button>
+<ion-button expand="block" color="primary" (click)="navigateToTab('Login')"> Login </ion-button>
 
 </ion-content>
