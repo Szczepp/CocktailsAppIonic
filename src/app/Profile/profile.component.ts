@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,8 +13,17 @@ import { IonicModule } from '@ionic/angular';
 })
 export class ProfileComponent  implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
+  currentUser: any = localStorage.getItem('currentUser');
+  ngOnInit() {
+    this.currentUser = JSON.parse(this.currentUser);
 
-  ngOnInit() {}
+  }
 
+  logout() {
+    this.authService.logout();
+  }
+  
 }

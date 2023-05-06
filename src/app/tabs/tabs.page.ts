@@ -16,6 +16,6 @@ export class TabsPage {
   constructor() {}
 
   
-  //currentUser: any = localStorage.getItem('currentUser');
-  currentUser: boolean = false;
+  currentUser: any = localStorage.getItem('currentUser');
+ // currentUser: boolean = false;
 }

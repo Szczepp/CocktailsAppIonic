@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("clicked log in");
+    //console.log(this.f?.['username'].value);
     this.submitted = true;
 
     if (this.loginForm?.invalid) {

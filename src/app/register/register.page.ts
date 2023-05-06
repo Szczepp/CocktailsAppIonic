@@ -35,7 +35,9 @@ export class RegisterPage implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
     });
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -47,23 +49,27 @@ export class RegisterPage implements OnInit {
 
   onSubmit(): void {
     console.log("clicked log in");
-    // this.submitted = true;
+    this.submitted = true;
 
-    // if (this.registerForm?.invalid) {
-    //   return;
-    // }
-    // this.loading = true;
-    // this.authService
-    //   .register(this.f?.['username'].value, this.f?.['password'].value)
-    //   .pipe(first())
-    //   .subscribe(
-    //     (data) => {
-    //       this.router.navigate([this.returnUrl]);
-    //     },
-    //     (error) => {
-    //       this.error = error.error;
-    //       this.loading = false;
-    //     }
-    //   );
+    if (this.registerForm?.invalid) {
+      return;
+    }
+    this.loading = true;
+    this.authService
+      .register(
+        this.f?.['username'].value,
+         this.f?.['email'].value,
+         this.f?.['password'].value,
+         this.f?.['confirmPassword'].value)
+      .pipe(first())
+      .subscribe(
+        (data) => {
+          this.router.navigate([this.returnUrl]);
+        },
+        (error) => {
+          this.error = error.error;
+          this.loading = false;
+        }
+      );
   }
 }
