@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -14,7 +16,8 @@ export class UserService {
   private token! : string;
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private router: Router
   ) { 
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(this.user));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -27,15 +30,9 @@ export class UserService {
       return this.token;
     }
   
-  getContacts() {
-    return this.httpClient.get<any>('https://localhost:44335/api/contact');
-  }
-  getContact(contactId: number) {
-    return this.httpClient.get<any>('https://localhost:44335/api/contact/' + contactId);
-  }
 
   login(username: string, password: string) {
-    return this.httpClient.post<any>(`https://localhost:44335/api/authentication/login`, { username, password })
+    return this.httpClient.post<any>(`https://localhost:44308/api/authentication/login`, { username, password })
         .pipe(map(user => {
             localStorage.setItem('currentUser', JSON.stringify(user));
             this.currentUserSubject.next(user);
@@ -45,9 +42,17 @@ export class UserService {
         }));
   }
 
+  register(username: string, email: string,  password: string, confirmPassword: string) {
+    return this.httpClient.post<any>(`https://localhost:44308/api/authentication/register`, { username, email,  password, confirmPassword})
+        .pipe(map(user => {
+          this.router.navigate(['/']);
+        }));
+  }
+
   logout() {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('currentUserToken');
     this.currentUserSubject.next(null);
+    this.router.navigate(['/']);
   }
 }
