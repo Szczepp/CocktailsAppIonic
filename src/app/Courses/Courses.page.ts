@@ -13,20 +13,28 @@ import { CourseService } from '../_services/course.service';
 })
 export class Courses implements OnInit{
 
-  public courses: any = [];
+  public courses: any;
+  public JSON: any;
 
   constructor (
     private courseService: CourseService
-  ) {}
+  ) {
+    this.JSON = JSON;
+  }
 
   ngOnInit(): void {
     this.fetchData();
     console.log(this.courses);
   }
 
-  async fetchData() {
+   fetchData() {
     try {
-      this.courses = await this.courseService.getCourses();
+      this.courseService.getCoursesFromApi().subscribe((data) => {
+        this.courses = data['$values'];
+        console.log(this.courses);
+        // console.log(data);
+        //console.log(this.courses);
+      });;
     } catch (error) {
       console.error(error);
     }
