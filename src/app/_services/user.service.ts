@@ -15,6 +15,8 @@ export class UserService {
   private user? : any = localStorage.getItem('currentUser');
   private token! : string;
 
+  
+
   constructor(
     private httpClient: HttpClient,
     private router: Router
@@ -47,6 +49,10 @@ export class UserService {
         .pipe(map(user => {
           this.router.navigate(['/']);
         }));
+  }
+
+  getCurrentUser() {
+    return this.currentUser;
   }
 
   logout() {

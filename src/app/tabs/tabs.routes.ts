@@ -37,6 +37,11 @@ export const routes: Routes = [
           import('../register/register.page').then((m) => m.RegisterPage),
       },
       {
+        path: 'add-course',
+        loadComponent: () =>
+          import('../add-course/add-course.page').then((m) => m.AddCoursePage),
+      },
+      {
         path: '',
         redirectTo: '/tabs/Home',
         pathMatch: 'full',

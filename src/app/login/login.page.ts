@@ -63,6 +63,7 @@ export class LoginPage implements OnInit {
         (error) => {
           this.error = error.error;
           this.loading = false;
+
         }
       );
   }
