@@ -17,11 +17,20 @@ export class CourseService {
 
   getCourses() {
     this.getCoursesFromApi();
-    // console.log(this.courses);
-    // return this.courses;
+  }
+
+  addCourse(newCourse: Course): void {
+    this.httpClient.post('https://localhost:44308/api/courses', { newCourse });
   }
 
   getCoursesFromApi():Observable<any> {
     return this.httpClient.get('https://localhost:44308/api/courses')
   }
+}
+
+export interface Course {
+  name: string;
+  description: string;
+  category: string;
+  content: string;
 }

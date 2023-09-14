@@ -1,7 +1,8 @@
-import { Component, EnvironmentInjector, inject } from '@angular/core';
+import { Component, EnvironmentInjector, OnChanges, OnInit, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { ProfileComponent } from '../Profile/profile.component';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-tabs',
@@ -10,12 +11,23 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [IonicModule, ProfileComponent, CommonModule],
 })
-export class TabsPage {
+export class TabsPage implements OnChanges, OnInit  {
   public environmentInjector = inject(EnvironmentInjector);
+  currentUser: boolean = false;
+  test: any;
 
-  constructor() {}
+  constructor(
+    private userService: UserService
+  ) {}
+
+  ngOnInit(): void {
+    this.userService.currentUser.subscribe(user => (this.currentUser = user != null ? true : false));
+  }
+
+  ngOnChanges(): void {
+    
+  }
 
   
-  currentUser: any = localStorage.getItem('currentUser');
- // currentUser: boolean = false;
+  
 }
