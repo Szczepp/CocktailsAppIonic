@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">baracad</string>
+    <string name="title_activity_main">baracad</string>
+    <string name="package_name">ionic.baracad</string>
+    <string name="custom_url_scheme">ionic.baracad</string>
+</resources>
