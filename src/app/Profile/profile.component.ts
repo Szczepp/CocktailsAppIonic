@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { AuthService } from '../_services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +15,8 @@ import { AuthService } from '../_services/auth.service';
 export class ProfileComponent  implements OnInit {
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
   currentUser: any = localStorage.getItem('currentUser');
   ngOnInit() {
@@ -24,6 +26,11 @@ export class ProfileComponent  implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  addCourse() {
+    this.router.navigate(['/tabs', 'add-course']);
+
   }
   
 }

@@ -6,6 +6,14 @@ import { SearchService } from '../_services/search.service';
 import { first } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 
+export interface CocktailRecipe {
+  strDrink: string,
+  strGlass: string,
+  ingredients: [],
+  strInstructions: string,
+  measures: []
+};
+
 @Component({
   selector: 'Search',
   templateUrl: 'Search.page.html',
@@ -13,6 +21,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [IonicModule, ReactiveFormsModule, ProfileComponent, CommonModule]
 })
+
 export class Search implements OnInit{
 
   constructor(
@@ -25,6 +34,7 @@ export class Search implements OnInit{
     submitted = false;
     error!: string;
     cocktails: any = [];
+    cocktailRecipe!: CocktailRecipe;
 
     get f() {
       return this.searchForm?.controls;
@@ -48,7 +58,10 @@ export class Search implements OnInit{
     .subscribe(
       (data) => {
         this.cocktails = data.drinks;
-        console.log(this.cocktails);
+        //console.log(this.cocktails);
+        this.cocktailRecipe = data.drinks[0];
+        console.log(this.cocktailRecipe);
+
       },
       (error) => {
         this.error = error.error;
