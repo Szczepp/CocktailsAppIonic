@@ -1,4 +1,4 @@
-# Project Name
+# CocktailsApp
 > This app allows you to insert cocktail ingredients and receive cocktail recipes that are available to make with those
 
 ## Table of Contents
@@ -7,7 +7,6 @@
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
-* [Usage](#usage)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
