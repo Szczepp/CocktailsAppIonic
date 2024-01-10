@@ -16,57 +16,47 @@
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
+- What problem does it (intend to) solve? <br>
   Sometimes you have some ingredients but have no idea how to combine them into a good cocktail recipe. That is where this app comes in. It solves this problem providing you many recipes available online.
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
-
+- Angular - version 15.0
+- Ionic Angular  - version 7.0
+- Typescript - version 4.8.4
+- rxjs - version 7.5.0
 
 ## Features
 List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Getting cocktail recipes from public API https://www.thecocktaildb.com/api.php
+- Register / Login
 
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![image](https://github.com/Szczepp/CocktailsAppIonic/assets/46753299/2b332b04-8ef2-48e8-90bb-0bc58fd45ee8)
+![image](https://github.com/Szczepp/CocktailsAppIonic/assets/46753299/138aa1fb-2494-43b9-945a-9f8ac9e28e1f)
+
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
-
-
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
+To run the application you need to have Angular CLI 15.0 installed, then simply:
+* clone this repository
+* run `npm update`
+* `ng serve`
 
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
-
+Project is: _in progress_ 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
 Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Better user input valdiation
 
 To do:
-- Feature to be added 1
-- Feature to be added 2
+- Adding courses to _favourite_
+- Marking cocktail recipes as _done_
 
 
 ## Acknowledgements
@@ -77,7 +67,7 @@ Give credit here.
 
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by Szczepan Kowalik, Mikołaj Tański (https://github.com/MikolajTanski), Karolina Fracka D.O (https://github.com/KFracka)
 
 
 <!-- Optional -->
